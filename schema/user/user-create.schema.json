@@ -1,0 +1,42 @@
+{
+  "$async": true,
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "first_name",
+    "email",
+    "password",
+    "role"
+  ],
+  "properties": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "email": {
+      "type": "string",
+      "Email": true
+    },
+    "password": {
+      "type": "string"
+    },
+    "mobile_number": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "customer"
+      ]
+    }
+  }
+}
