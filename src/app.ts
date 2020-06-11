@@ -10,6 +10,7 @@ import { userMiddleware } from "./middlewares/user.middleware";
 import { Helpers } from "./util/helpers.util";
 import { RouteNotFoundException } from "./exceptions/route-not-found.exception";
 import { errorHandler } from "./handlers/error-handler";
+import { adminMiddleware } from "./middlewares/admin.middleware";
 
 const compression = require("compression");
 
@@ -50,9 +51,9 @@ export class Application {
         this.APP.post("/login", errorHandler(UserController.login));
         this.APP.post("/sign-up", errorHandler(UserController.signUp));
         // AUTHENTICATED APIS
-        this.APP.get("/users", userMiddleware, errorHandler(UserController.index));
-        this.APP.get("/users/:id([0-9]+)", userMiddleware, errorHandler(UserController.showById));
-        this.APP.post("/users", userMiddleware , errorHandler(UserController.showByEmail));
+        this.APP.get("/users", userMiddleware, adminMiddleware, errorHandler(UserController.index));
+        this.APP.get("/users/:id([0-9]+)", userMiddleware, adminMiddleware, errorHandler(UserController.showById));
+        this.APP.post("/users", userMiddleware, adminMiddleware , errorHandler(UserController.showByEmail));
 
         this.APP.all("*", (req: express.Request, res: express.Response) => Helpers.handleError(res, new RouteNotFoundException()));
     }
