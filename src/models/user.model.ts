@@ -36,6 +36,6 @@ export class User extends Model<User> {
   @Column(DataType.STRING)
   mobile_number: string;
 
-  @Column(DataType.ENUM({values: Helpers.iterateEnum(Role)}))
+  @Column(DataType.ENUM({values: Helpers.iterateEnum<Role>(Role)}))
   role: Role;
 }

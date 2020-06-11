@@ -1,0 +1,18 @@
+{
+  "$async": true,
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "email",
+    "password"
+  ],
+  "properties": {
+    "email": {
+      "type": "string",
+      "Email": true
+    },
+    "password": {
+      "type": "string"
+    }
+  }
+}

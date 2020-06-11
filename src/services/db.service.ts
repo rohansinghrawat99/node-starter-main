@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
 import { ENV_MYSQL_DB, ENV_MYSQL_HOSTNAME, ENV_MYSQL_PASSWORD, ENV_MYSQL_USER } from "../util/secrets.util";
 import logger from "../util/logger.util";
-import { User } from "../models/user.model";
 import sequelize from "sequelize";
+import { User } from "../models/user.model";
 
 class DBService {
   private _sequelize: Sequelize;

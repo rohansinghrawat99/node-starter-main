@@ -7,7 +7,7 @@ export abstract class TransformerAbstract<T> {
   protected defaultIncludes: string[] = [];
 
   async transform(model: T, includes?: string[]): Promise<Dictionary<any>> {
-    return await this._mapModelWithIncludes(model, includes?.length ? includes : this.defaultIncludes);
+    return await this._mapModelWithIncludes(model, includes && includes.length ? includes : this.defaultIncludes);
   }
 
   async transformList(models: T[], includes?: string[]): Promise<Dictionary<any>[]> {
