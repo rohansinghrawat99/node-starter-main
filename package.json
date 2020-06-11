@@ -2,7 +2,7 @@
   "name": "node-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "private": true,
   "scripts": {
     "watch-ts": "tsc -w",
     "watch-node": "NODE_ENV=dev nodemon dist/server.js",
@@ -17,9 +17,9 @@
     "build-prod": "npm run build-ts && npm run tslint && npm run copy-static-assets-prod",
     "debug": "npm run build && npm run watch-debug",
     "serve": "node dist/server.js",
-    "gen:migration": "./migration-generate.sh",
+    "gen:migration": "./migration-generate.`sh",
     "gen:seeder": "./seeder-generate.sh",
-    "start": "tsc && node dist/app.js",
+    "start": "npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -52,11 +52,11 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "request-validator-node": "^1.0.4",
-    "sequelize": "^4.44.3",
-    "sequelize-typescript": "^0.6.10",
+    "sequelize": "^5.21.11",
+    "sequelize-cli": "5.5.1",
+    "sequelize-typescript": "^1.1.0",
     "server": "^1.0.18",
     "signed": "^1.0.1",
-    "tsc": "^1.20150623.0",
     "uuid": "^3.3.2",
     "winston": "^3.2.1",
     "ws": "^6.1.4"
@@ -78,7 +78,7 @@
     "@types/node": "^9.6.48",
     "@types/request": "^2.48.1",
     "@types/request-promise": "^4.1.43",
-    "@types/sequelize": "^4.28.8",
+    "@types/sequelize": "^4.28.9",
     "@types/shelljs": "^0.7.9",
     "@types/uuid": "^3.4.4",
     "@types/validator": "10.11.3",
@@ -88,10 +88,9 @@
     "@typescript-eslint/parser": "^2.4.0",
     "concurrently": "^4.1.2",
     "nodemon": "^1.19.2",
-    "sequelize-cli": "^5.5.1",
     "shelljs": "^0.8.3",
-    "ts-node": "^8.4.1",
-    "tslint": "^5.20.1",
-    "typescript": "^3.7.2"
+    "ts-node": "^8.10.1",
+    "tslint": "6.1.1",
+    "typescript": "^3.9.3"
   }
 }

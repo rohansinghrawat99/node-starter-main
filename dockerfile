@@ -1,0 +1,14 @@
+FROM node:9 AS build
+WORKDIR /srv
+ADD package.json .
+RUN npm install
+ADD . .
+RUN npm run build
+
+FROM node:9-slim
+COPY --from=build /srv/dist .
+COPY --from=build /srv/node_modules ./node_modules
+RUN ls -a
+EXPOSE 80
+EXPOSE 8080
+CMD ["node", "server.js"]
